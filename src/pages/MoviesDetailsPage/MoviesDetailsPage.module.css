@@ -1,0 +1,49 @@
+.go_back_btn {
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.go_back_link {
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image_box {
+  width: 470px;
+  height: 470px;
+  margin-right: 20px;
+}
+
+.series_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.user_score {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.overview_title {
+  margin-bottom: 10px;
+}
+
+.overview_text {
+  margin-bottom: 20px;
+}
+
+.genres_title {
+  margin-bottom: 10px;
+}
