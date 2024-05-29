@@ -21,7 +21,6 @@ const MoviesDetailsPage = () => {
   const location = useLocation();
   const backLinkRef = useRef(location.state ?? "/movies");
 
-  console.log(backLinkRef);
   useEffect(() => {
     async function fetchMovieById() {
       const data = await theMovieDBapi.getMoviesById(movieId);
