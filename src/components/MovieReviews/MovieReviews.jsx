@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import theMovieDBapi from "../../helpers/movies-api";
 import { useParams } from "react-router-dom";
-import MoviesList from "../MoviesList/MoviesList";
-import MoviesListItem from "../MoviesListItem/MoviesListItem";
+import Grid from "../Grid/Grid";
+import GridItem from "../GridItem/GridItem";
 import { Oval } from "react-loader-spinner";
 
 const MovieReviews = () => {
@@ -33,14 +33,14 @@ const MovieReviews = () => {
 
       {loader && <Oval />}
       {reviews.length > 0 ? (
-        <MoviesList>
+        <Grid>
           {reviews.map((review) => (
-            <MoviesListItem key={review.id}>
+            <GridItem key={review.id}>
               <h3>{review.author}</h3>
               <p>{review.content}</p>
-            </MoviesListItem>
+            </GridItem>
           ))}
-        </MoviesList>
+        </Grid>
       ) : (
         <p>Not reviews yet</p>
       )}

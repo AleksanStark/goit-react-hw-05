@@ -5,7 +5,7 @@ import { Oval } from "react-loader-spinner";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
 const MoviesDetailsPage = lazy(() =>
-  import("./pages/MoviesDetailsPage/MoviesDetailsPage")
+  import("./pages/MovieDetailsPage/MovieDetailsPage")
 );
 const Navigation = lazy(() => import("./components/Navigation"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));

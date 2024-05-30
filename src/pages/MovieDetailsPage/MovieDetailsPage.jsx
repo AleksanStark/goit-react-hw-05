@@ -7,9 +7,9 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
-import css from "./MoviesDetailsPage.module.css";
-import MoviesList from "../../components/MoviesList/MoviesList";
-import MoviesListItem from "../../components/MoviesListItem/MoviesListItem";
+import css from "./MovieDetailsPage.module.css";
+import Grid from "../../components/Grid/Grid";
+import GridItem from "../../components/GridItem/GridItem";
 import { Oval } from "react-loader-spinner";
 const MoviesDetailsPage = () => {
   const { movieId } = useParams();
@@ -73,14 +73,14 @@ const MoviesDetailsPage = () => {
           ))}
         </div>
       </div>
-      <MoviesList>
-        <MoviesListItem>
+      <Grid>
+        <GridItem>
           <NavLink to={"reviews"}>reviews</NavLink>
-        </MoviesListItem>
-        <MoviesListItem>
+        </GridItem>
+        <GridItem>
           <NavLink to={"cast"}>cast</NavLink>
-        </MoviesListItem>
-      </MoviesList>
+        </GridItem>
+      </Grid>
 
       <Suspense fallback={<Oval />}>
         <Outlet />

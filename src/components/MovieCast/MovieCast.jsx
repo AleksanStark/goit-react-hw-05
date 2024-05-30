@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import MoviesList from "../MoviesList/MoviesList";
+import Grid from "../Grid/Grid";
 import theMovieDBapi from "../../helpers/movies-api";
 import { useParams } from "react-router-dom";
-import MoviesListItem from "../MoviesListItem/MoviesListItem";
+import GridItem from "../GridItem/GridItem";
 import { Oval } from "react-loader-spinner";
 
 const MovieCast = () => {
@@ -25,23 +25,23 @@ const MovieCast = () => {
       }
     };
     fetchCast();
-  });
+  }, [movieId]);
   return (
     <>
       {loader && <Oval />}
       {error && <p>Oops something went wrong please try reload the page</p>}
       {cast.length > 0 && (
-        <MoviesList>
+        <Grid>
           {cast.map((actor) => (
-            <MoviesListItem key={actor.id}>
+            <GridItem key={actor.id}>
               <h3>{actor.name}</h3>
               <img
                 src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
                 alt=""
               />
-            </MoviesListItem>
+            </GridItem>
           ))}
-        </MoviesList>
+        </Grid>
       )}
     </>
   );
