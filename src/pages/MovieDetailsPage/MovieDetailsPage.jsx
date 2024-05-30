@@ -1,15 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import theMovieDBapi from "../../helpers/movies-api";
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-  useParams,
-} from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import css from "./MovieDetailsPage.module.css";
-import Grid from "../../components/Grid/Grid";
-import GridItem from "../../components/GridItem/GridItem";
 import { Oval } from "react-loader-spinner";
 const MoviesDetailsPage = () => {
   const { movieId } = useParams();
@@ -73,15 +65,6 @@ const MoviesDetailsPage = () => {
           ))}
         </div>
       </div>
-      <Grid>
-        <GridItem>
-          <NavLink to={"reviews"}>reviews</NavLink>
-        </GridItem>
-        <GridItem>
-          <NavLink to={"cast"}>cast</NavLink>
-        </GridItem>
-      </Grid>
-
       <Suspense fallback={<Oval />}>
         <Outlet />
       </Suspense>
