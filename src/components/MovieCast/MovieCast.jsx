@@ -4,7 +4,6 @@ import theMovieDBapi from "../../helpers/movies-api";
 import { useParams } from "react-router-dom";
 import MoviesListItem from "../MoviesListItem/MoviesListItem";
 import { Oval } from "react-loader-spinner";
-import toast, { Toaster } from "react-hot-toast";
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -15,9 +14,8 @@ const MovieCast = () => {
   useEffect(() => {
     const fetchCast = async () => {
       try {
-        setLoader(true);
         setError(false);
-
+        setLoader(true);
         const { cast } = await theMovieDBapi.getCastById(movieId);
         setCast(cast);
       } catch (error) {
@@ -31,11 +29,7 @@ const MovieCast = () => {
   return (
     <>
       {loader && <Oval />}
-      {error &&
-        toast.error("Oops something went wrong please reload the page", {
-          position: "top-right",
-        })}
-      <Toaster />
+      {error && <p>Oops something went wrong please try reload the page</p>}
       {cast.length > 0 && (
         <MoviesList>
           {cast.map((actor) => (

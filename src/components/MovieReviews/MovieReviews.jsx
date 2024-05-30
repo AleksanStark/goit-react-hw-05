@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import MoviesList from "../MoviesList/MoviesList";
 import MoviesListItem from "../MoviesListItem/MoviesListItem";
 import { Oval } from "react-loader-spinner";
-import toast, { Toaster } from "react-hot-toast";
 
 const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -30,11 +29,8 @@ const MovieReviews = () => {
 
   return (
     <>
-      {error &&
-        toast.error("Oops something went wrong please try reload the page", {
-          position: "top-right",
-        })}
-      <Toaster />
+      {error && <p>Oops something went wrong please try reload the page</p>}
+
       {loader && <Oval />}
       {reviews.length > 0 ? (
         <MoviesList>

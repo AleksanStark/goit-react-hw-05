@@ -16,23 +16,34 @@ const MoviesDetailsPage = () => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [releaseYear, setReleaseYear] = useState("");
-
+  const [loader, setLoader] = useState(false);
+  const [error, setError] = useState(false);
   const { poster_path, title, overview, vote_average } = movies;
   const location = useLocation();
   const backLinkRef = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     async function fetchMovieById() {
-      const data = await theMovieDBapi.getMoviesById(movieId);
-      setMovies(data);
-      setGenres(data.genres);
-      setReleaseYear(data.release_date.slice(0, 4));
+      try {
+        setError(false);
+        setLoader(true);
+        const data = await theMovieDBapi.getMoviesById(movieId);
+        setMovies(data);
+        setGenres(data.genres);
+        setReleaseYear(data.release_date.slice(0, 4));
+      } catch (error) {
+        setError(true);
+      } finally {
+        setLoader(false);
+      }
     }
     fetchMovieById();
   }, [movieId]);
 
   return (
     <div>
+      {loader && <Oval />}
+      {error && <p>Oops something went wrong please try reload the page</p>}
       <button className={css.go_back_btn}>
         <Link className={css.go_back_link} to={backLinkRef.current}>
           Go back
