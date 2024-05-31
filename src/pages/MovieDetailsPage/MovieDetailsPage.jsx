@@ -36,11 +36,9 @@ const MoviesDetailsPage = () => {
     <div>
       {loader && <Oval />}
       {error && <p>Oops something went wrong please try reload the page</p>}
-      <button className={css.go_back_btn}>
-        <Link className={css.go_back_link} to={backLinkRef.current}>
-          Go back
-        </Link>
-      </button>
+      <Link className={css.go_back_link} to={backLinkRef.current}>
+        Go back
+      </Link>
       <div className={css.container}>
         <div className={css.image_box}>
           <img
@@ -65,6 +63,15 @@ const MoviesDetailsPage = () => {
           ))}
         </div>
       </div>
+      <ul>
+        <li>
+          <Link to={"reviews"}>Reviews</Link>
+        </li>
+        <li>
+          <Link to={"cast"}>Cast</Link>
+        </li>
+      </ul>
+
       <Suspense fallback={<Oval />}>
         <Outlet />
       </Suspense>

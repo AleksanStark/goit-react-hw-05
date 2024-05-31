@@ -1,11 +1,12 @@
-.go_back_btn {
-  margin-bottom: 20px;
-  padding: 5px;
-}
-
 .go_back_link {
+  display: block;
+  width: 70px;
+  border: 1px solid black;
+  background-color: #efefef;
   text-decoration: none;
   color: black;
+  margin-bottom: 20px;
+  padding: 5px;
 }
 
 .container {
